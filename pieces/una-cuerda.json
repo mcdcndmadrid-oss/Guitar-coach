@@ -1,0 +1,16 @@
+{
+  "title": "Una cuerda",
+  "composer": "Guitar Coach",
+  "tempo": 70,
+  "timeSignature": "4/4",
+  "description": "Ejercicio en la 1ª cuerda (Mi agudo), trastes 0 a 3",
+  "notes": [
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 0, "durationBeats": 1 },
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 1, "durationBeats": 1 },
+    { "midi": 66, "string": 1, "fret": 2, "startBeat": 2, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 3, "durationBeats": 1 },
+    { "midi": 66, "string": 1, "fret": 2, "startBeat": 4, "durationBeats": 1 },
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 5, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 6, "durationBeats": 2 }
+  ]
+}

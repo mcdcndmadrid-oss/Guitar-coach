@@ -1,0 +1,128 @@
+:root {
+  color-scheme: dark;
+  --bg: #07101f;
+  --panel: #101b2f;
+  --line: rgba(255, 255, 255, 0.12);
+  --text: #f7f9fc;
+  --muted: #a8b4ca;
+  --accent: #7c9cff;
+  --accent-strong: #9cb2ff;
+  --correct: #46d49a;
+  --error: #ff6b7a;
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+}
+
+* { box-sizing: border-box; }
+html { background: var(--bg); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, rgba(124, 156, 255, 0.16), transparent 30rem), linear-gradient(180deg, #081222, #050a13 70%);
+}
+h1, h2, p { margin: 0; }
+h1 { font-size: clamp(1.45rem, 4vw, 2.35rem); letter-spacing: -0.04em; }
+
+.app-shell {
+  width: min(1240px, calc(100% - 20px));
+  margin: 0 auto;
+  padding: max(10px, env(safe-area-inset-top)) 0 max(24px, env(safe-area-inset-bottom));
+}
+.topbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 8px 4px 16px; }
+.eyebrow { margin-bottom: 4px; color: var(--accent-strong); font-size: .69rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+.muted { color: var(--muted); }
+.panel { margin-bottom: 10px; border: 1px solid var(--line); border-radius: 15px; background: linear-gradient(180deg, rgba(21,35,59,.96), rgba(12,23,41,.98)); box-shadow: var(--shadow); padding: 12px; }
+
+.controls { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 10px; align-items: end; }
+.control-group { display: grid; gap: 5px; min-width: 0; color: var(--muted); font-size: .77rem; }
+.compact-actions { align-self: stretch; }
+.status-group strong { display: block; color: var(--text); font-size: .95rem; }
+select { width: 100%; min-height: 39px; border: 1px solid var(--line); border-radius: 10px; padding: 0 9px; color: var(--text); background: #0b1627; font: inherit; }
+.button { width: 100%; min-height: 39px; border: 1px solid var(--line); border-radius: 10px; padding: 0 11px; color: var(--text); background: #15243c; cursor: pointer; font: inherit; }
+.button:active { transform: translateY(1px); }
+.button.is-playing { border-color: rgba(124, 156, 255, .7); background: rgba(70, 100, 200, .4); }
+.file-button { display: flex; align-items: center; justify-content: center; min-height: 39px; border: 1px solid var(--line); border-radius: 10px; padding: 0 11px; color: var(--text); background: #15243c; cursor: pointer; font-size: .85rem; text-align: center; }
+.file-button:active { transform: translateY(1px); }
+.file-button input { display: none; }
+.button-primary { border: 0; background: linear-gradient(135deg, #6788ff, #876cf4); font-weight: 800; }
+.button-primary.is-active { border-color: rgba(70, 212, 154, .72); background: rgba(29, 113, 82, .55); }
+
+.mic-help { display: flex; align-items: center; justify-content: space-between; gap: 14px; border-color: rgba(255,202,92,.5); }
+.mic-help[hidden] { display: none; }
+.mic-help p { margin-top: 4px; color: var(--muted); font-size: .82rem; line-height: 1.4; }
+
+.button-ghost { background: transparent; }
+.calibration-panel { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 18px; border-color: rgba(124, 156, 255, .48); }
+.calibration-panel[hidden] { display: none; }
+.calibration-copy { display: grid; gap: 5px; min-width: 0; }
+.calibration-copy > strong { font-size: 1rem; }
+.calibration-copy > p:not(.eyebrow) { color: var(--muted); font-size: .82rem; line-height: 1.4; }
+.calibration-actions { display: grid; justify-items: end; gap: 8px; color: var(--muted); font-size: .76rem; text-align: right; }
+.calibration-actions > div { display: flex; gap: 7px; }
+.calibration-progress { width: min(440px, 100%); height: 7px; overflow: hidden; border-radius: 999px; background: #06101e; }
+.calibration-progress > div { width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg,#6d8cff,#4dd7a2); transition: width 160ms ease; }
+
+.fretboard-panel #microphoneHint { margin-top: 8px; font-size: .78rem; }
+
+.feedback-grid { display: grid; grid-template-columns: repeat(6, minmax(0,1fr)); gap: 8px; margin-bottom: 10px; }
+.metric-card { min-width: 0; padding: 11px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.metric-card span { display: block; margin-bottom: 5px; color: var(--muted); font-size: .7rem; }
+.metric-card strong { display: block; overflow: hidden; font-size: clamp(.95rem, 2.5vw, 1.25rem); text-overflow: ellipsis; white-space: nowrap; }
+
+@media (max-width: 760px) {
+  .controls { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .feedback-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+  .calibration-panel { grid-template-columns: 1fr; gap: 8px; }
+  .calibration-actions { justify-items: start; text-align: left; }
+}
+
+#scoreCanvas { display: block; width: 100%; height: clamp(230px, 42vh, 380px); border-radius: 12px; background: #f7f4ec; touch-action: none; }
+
+/* Diapasón de referencia: 6 cuerdas (1 arriba, agudo -> 6 abajo, grave) x trastes,
+   mismo orden que la tablatura del lienzo. Cada cuerda tiene un color fijo,
+   igual que en la guitarra real del usuario. */
+.fretboard {
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  gap: 3px;
+  padding: 6px;
+  border-radius: 10px;
+  background: #080d16;
+}
+.fretboard-row {
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+  gap: 3px;
+}
+.fret-cell {
+  position: relative;
+  min-height: 30px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fret-cell::before {
+  content: '';
+  width: 55%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--string-color);
+  opacity: .85;
+}
+.fret-cell.open::before { width: 70%; height: 6px; }
+.fret-cell.expected { background: rgba(255, 204, 0, .22); border-color: #ffcc00; box-shadow: 0 0 0 2px rgba(255, 204, 0, .55); }
+.fret-cell.detected { background: rgba(70, 212, 154, .28); border-color: var(--correct); }
+.fret-cell.wrong { background: rgba(255, 107, 122, .28); border-color: var(--error); }
+.fret-cell.preview-current { background: rgba(124, 156, 255, .28); border-color: var(--accent); }
+.fret-cell.preview-flash { background: rgba(124, 156, 255, .55); border-color: var(--accent-strong); }
+.fret-cell.calibration-target { background: rgba(255, 200, 78, .3); border-color: #ffc84e; box-shadow: 0 0 16px rgba(255, 200, 78, .5); }
+.fretboard-panel-flash { animation: fretboard-flash-red 260ms ease; }
+@keyframes fretboard-flash-red {
+  0% { box-shadow: inset 0 0 0 3px rgba(255, 107, 122, .9); }
+  100% { box-shadow: inset 0 0 0 3px rgba(255, 107, 122, 0); }
+}

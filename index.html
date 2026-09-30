@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101828" />
+  <meta name="description" content="MVP para practicar guitarra con partitura + tablatura desplazable, diapasón de referencia y reconocimiento por micrófono." />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="screen-orientation" content="landscape" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Guitar Coach" />
+  <title>Guitar Coach MVP</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Guitar Coach</p>
+        <h1 id="pieceTitle">Cargando pieza…</h1>
+        <p id="pieceMeta" class="muted">MVP monofónico</p>
+      </div>
+      <button id="micButton" class="button button-primary" type="button">Activar micrófono</button>
+    </header>
+
+    <section class="panel controls" aria-label="Configuración de práctica">
+      <label class="control-group">
+        <span>Pieza</span>
+        <select id="pieceSelect" aria-label="Seleccionar pieza">
+          <option value="una-cuerda">Una cuerda</option>
+          <option value="estrellita">Estrellita</option>
+          <option value="oda-a-la-alegria-guitarra">Oda a la alegría</option>
+        </select>
+      </label>
+      <label class="control-group">
+        <span>Modo</span>
+        <select id="modeSelect">
+          <option value="continuous">Interpretación continua</option>
+          <option value="wait">Esperar nota correcta</option>
+        </select>
+      </label>
+      <div class="control-group compact-actions">
+        <button id="playButton" class="button" type="button">▶ Practicar</button>
+        <button id="previewButton" class="button" type="button">♪ Escuchar</button>
+      </div>
+      <div class="control-group status-group">
+        <span>Estado</span>
+        <strong id="transportStatus">Preparado</strong>
+      </div>
+      <div class="control-group">
+        <span>Afinación</span>
+        <button id="calibrateButton" class="button button-ghost" type="button">🎸 Calibrar</button>
+      </div>
+      <div class="control-group">
+        <span>Añadir pieza</span>
+        <label class="file-button" title="Importa una pieza JSON, MusicXML (.musicxml/.xml/.mxl), o convierte automáticamente una melodía MIDI">
+          Añadir JSON/MusicXML/MIDI
+          <input id="pieceFileInput" type="file" accept="application/json,.json,audio/midi,audio/x-midi,.mid,.midi,application/vnd.recordare.musicxml+xml,application/vnd.recordare.musicxml,.musicxml,.xml,.mxl" />
+        </label>
+      </div>
+    </section>
+
+    <section id="micHelp" class="panel mic-help" hidden aria-live="polite">
+      <div>
+        <strong id="micHelpTitle">No se pudo activar el micrófono</strong>
+        <p id="micHelpText"></p>
+      </div>
+      <button id="retryMicButton" class="button" type="button">Reintentar</button>
+    </section>
+
+    <section id="calibrationPanel" class="panel calibration-panel" hidden aria-live="polite">
+      <div class="calibration-copy">
+        <p class="eyebrow">Calibración de octava</p>
+        <strong id="calibrationTitle">Paso 1 de 3 · Mi grave (6ª al aire)</strong>
+        <p id="calibrationText">Toca y mantén la cuerda marcada.</p>
+        <div class="calibration-progress" aria-label="Progreso de calibración"><div id="calibrationProgressBar"></div></div>
+      </div>
+      <div class="calibration-actions">
+        <span id="calibrationStatus">Esperando una nota estable…</span>
+        <div>
+          <button id="resetCalibrationButton" class="button button-ghost" type="button">Restablecer</button>
+          <button id="cancelCalibrationButton" class="button" type="button">Cancelar</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel score-panel" aria-label="Partitura y tablatura">
+      <canvas id="scoreCanvas" width="1400" height="340" aria-label="Partitura y tablatura desplazable"></canvas>
+    </section>
+
+    <section class="panel fretboard-panel" aria-label="Diapasón de referencia">
+      <div id="fretboard" class="fretboard"></div>
+      <p id="microphoneHint" class="muted">Activa el micrófono para validar notas.</p>
+    </section>
+
+    <section class="feedback-grid" aria-label="Información de reconocimiento">
+      <article class="metric-card"><span>Nota esperada</span><strong id="expectedNote">—</strong></article>
+      <article class="metric-card"><span>Nota detectada</span><strong id="detectedNote">—</strong></article>
+      <article class="metric-card"><span>Frecuencia</span><strong id="frequencyValue">—</strong></article>
+      <article class="metric-card"><span>Confianza</span><strong id="confidenceValue">—</strong></article>
+      <article class="metric-card"><span>Aciertos</span><strong id="correctValue">0</strong></article>
+      <article class="metric-card"><span>Errores</span><strong id="errorValue">0</strong></article>
+    </section>
+  </main>
+
+  <script src="fretboard-tuning.js" defer></script>
+  <script src="midi-import.js" defer></script>
+  <script src="musicxml-import.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+{
+  "title": "Estrellita",
+  "composer": "Canción tradicional",
+  "tempo": 88,
+  "timeSignature": "4/4",
+  "description": "Estrellita, ¿dónde estás? · posición abierta, cuerdas 1ª a 3ª",
+  "notes": [
+    { "midi": 60, "string": 2, "fret": 1, "startBeat": 0, "durationBeats": 1 },
+    { "midi": 60, "string": 2, "fret": 1, "startBeat": 1, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 2, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 3, "durationBeats": 1 },
+    { "midi": 69, "string": 1, "fret": 5, "startBeat": 4, "durationBeats": 1 },
+    { "midi": 69, "string": 1, "fret": 5, "startBeat": 5, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 6, "durationBeats": 2 },
+
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 8, "durationBeats": 1 },
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 9, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 10, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 11, "durationBeats": 1 },
+    { "midi": 62, "string": 2, "fret": 3, "startBeat": 12, "durationBeats": 1 },
+    { "midi": 62, "string": 2, "fret": 3, "startBeat": 13, "durationBeats": 1 },
+    { "midi": 60, "string": 2, "fret": 1, "startBeat": 14, "durationBeats": 2 },
+
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 16, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 17, "durationBeats": 1 },
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 18, "durationBeats": 1 },
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 19, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 20, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 21, "durationBeats": 1 },
+    { "midi": 62, "string": 2, "fret": 3, "startBeat": 22, "durationBeats": 2 },
+
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 24, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 25, "durationBeats": 1 },
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 26, "durationBeats": 1 },
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 27, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 28, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 29, "durationBeats": 1 },
+    { "midi": 62, "string": 2, "fret": 3, "startBeat": 30, "durationBeats": 2 },
+
+    { "midi": 60, "string": 2, "fret": 1, "startBeat": 32, "durationBeats": 1 },
+    { "midi": 60, "string": 2, "fret": 1, "startBeat": 33, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 34, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 35, "durationBeats": 1 },
+    { "midi": 69, "string": 1, "fret": 5, "startBeat": 36, "durationBeats": 1 },
+    { "midi": 69, "string": 1, "fret": 5, "startBeat": 37, "durationBeats": 1 },
+    { "midi": 67, "string": 1, "fret": 3, "startBeat": 38, "durationBeats": 2 },
+
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 40, "durationBeats": 1 },
+    { "midi": 65, "string": 1, "fret": 1, "startBeat": 41, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 42, "durationBeats": 1 },
+    { "midi": 64, "string": 1, "fret": 0, "startBeat": 43, "durationBeats": 1 },
+    { "midi": 62, "string": 2, "fret": 3, "startBeat": 44, "durationBeats": 1 },
+    { "midi": 62, "string": 2, "fret": 3, "startBeat": 45, "durationBeats": 1 },
+    { "midi": 60, "string": 2, "fret": 1, "startBeat": 46, "durationBeats": 2 }
+  ]
+}
